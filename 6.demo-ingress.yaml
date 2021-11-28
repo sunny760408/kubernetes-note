@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web
+spec:
+  rules:
+    - host: blue.demo.com
+      http:
+        paths:
+          - backend:
+              serviceName: blue-service
+              servicePort: 80
+    - host: purple.demo.com
+      http:
+        paths:
+          - backend:
+              serviceName: purple-service
+              servicePort: 80
+
+
+minikube ip
+echo 192.168.99.100   blue.demo.com  >> /etc/hosts
+echo 192.168.99.100   purple.demo.com >> /etc/hosts
